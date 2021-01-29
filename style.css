@@ -196,17 +196,15 @@ a:link, a:visited, a:hover, a:active {
   color: #ff0000;
 }
 
-#nav-input:checked ~ .controls_wrapper {
-  -webkit-transform: translateX(0%);
-  transform: translateX(0%);
-  box-shadow: 6px 0 25px rgba(0,0,0,.15);
-}
-
 .controls_wrapper {
   display: none !important;
   flex-wrap: wrap;
   margin-bottom: 1rem;
   opacity: 0.6;
+}
+
+#nav-input:checked ~ .controls_wrapper {
+  display: inline-block !important;
 }
 
 .control_wrapper {
