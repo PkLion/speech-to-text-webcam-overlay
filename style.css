@@ -196,7 +196,7 @@ a:link, a:visited, a:hover, a:active {
   color: #ff0000;
 }
 
-#nav-input:checked ~ #nav-content {
+#nav-input:checked ~ .controls_wrapper {
   -webkit-transform: translateX(0%);
   transform: translateX(0%);
   box-shadow: 6px 0 25px rgba(0,0,0,.15);
