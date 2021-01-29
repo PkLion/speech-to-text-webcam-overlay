@@ -1,6 +1,6 @@
 html,
 body {
-  background-color: #EEE;
+  background-color: #F8F8F8;
   font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
   color: #000;
   margin: 0;
@@ -165,16 +165,17 @@ a:link, a:visited, a:hover, a:active {
 
 #status,
 #status_kuromoji_loading {
-    box-sizing: border-box;
-  background-color: #000e16;
+  box-sizing: border-box;
+  background-color: #FFF;
   display: inline-block;
-    min-width: 20ex;
+  min-width: 20ex;
   padding: 8px 10px;
   margin-bottom: 1rem;
   font-size: 14px;
   letter-spacing: 0.02rem;
-    line-height: 100%;
+  line-height: 100%;
   text-align: center;
+  border-radius: 4px;
 }
 
 .processing {
@@ -203,7 +204,11 @@ a:link, a:visited, a:hover, a:active {
   opacity: 0.6;
 }
 
-#nav-input:checked ~ .controls_wrapper {
+#advanced_options {
+  padding: 6px;
+}
+
+#advanced_options:checked ~ .controls_wrapper {
   display: inline-block !important;
 }
 
@@ -384,7 +389,7 @@ select {
 .result_log_area {
   box-sizing: border-box;
   width: 960px;
-  background-color: #000;
+  background-color: #FFF;
   font-family: 'Noto Sans JP', sans-serif;
   font-size: 100%;
   color: #AAA;
