@@ -1,8 +1,8 @@
 html,
 body {
-  background-color: #FFF;
+  background-color: #EEE;
   font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
-  color: #FFF;
+  color: #000;
   margin: 0;
   padding: 0;
 }
@@ -13,7 +13,7 @@ body {
   color: #FFF;
   font-size: 68px;
   margin: 0;
-  padding: 6px;
+  padding: 10px;
 }
 
 .main {
