@@ -4,7 +4,7 @@
 Web Speech API の音声認識を利用して文字起こしした結果をWebカメラ映像に重畳して表示するWebページです。ブラウザを画面収録して，ビデオ会議や生配信等で使用できます。
 
 # デモページ
-https://1heisuzuki.github.io/speech-to-text-webcam-overlay/  
+https://pklion.github.io/speech-to-text-webcam-overlay/  
 *PC版のGoogle Chromeでアクセスしてください。
 
 **目次**
