@@ -186,7 +186,7 @@ a:link, a:visited, a:hover, a:active {
 }
 
 .controls_wrapper {
-	display: none;
+	display: none !important;
 	flex-wrap: wrap;
 	margin-bottom: 1rem;
 	opacity: 0.6;
