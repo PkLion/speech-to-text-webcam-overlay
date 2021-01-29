@@ -369,8 +369,8 @@
     const videoSource = select_camera.value;
     const constraints = {
       video: {
-        width:	1600,
-        height:	 900,
+        width:	{ideal: 1600},
+        height:	 {ideal: 900},
         aspectRatio: { ideal: 1.7777777778 }
       },
       audio: false
