@@ -9,6 +9,8 @@ body {
   display: block;
   background-color: #222;
   color: #FFF;
+  margin: 0;
+  padding: 6px;
 }
 
 .main {
@@ -190,6 +192,8 @@ a:link, a:visited, a:hover, a:active {
 .help_strong {
   color: #ff0000;
 }
+
+
 
 .controls_wrapper {
   display: none !important;
