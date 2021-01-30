@@ -202,15 +202,6 @@ a:link, a:visited, a:hover, a:active {
   display: inline-block !important;
 }
 
-#log_checkbox {
-  margin: 15px;
-  margin-left: 0;
-}
-
-#log_checkbox:checked ~ .log_control_wrapper {
-  display: inline-block !important;
-}
-
 .control_wrapper {
   display: flex;
   flex-wrap: wrap;
@@ -407,6 +398,19 @@ select {
   margin-bottom: 0.5rem;
 }
 
+#log_checkbox {
+  margin: 15px;
+  margin-left: 0;
+}
+
+#log_checkbox:checked ~ .log_wrapper {
+  display: inline-block !important;
+}
+
+.log_wrapper {
+  display: none;
+}
+
 .log_link_description { 
   width: 100%;
   font-size: 70%;
@@ -414,7 +418,6 @@ select {
 }
 
 .log_control_wrapper {
-  display: none;
   position: relative;
 }
 
