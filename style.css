@@ -193,12 +193,12 @@ a:link, a:visited, a:hover, a:active {
   opacity: 0.6;
 }
 
-#controls_checkbox {
+#checkbox_controls {
   margin: 15px;
   margin-left: 0;
 }
 
-#controls_checkbox:checked ~ .controls_wrapper {
+#checkbox_controls:checked ~ .controls_wrapper {
   display: inline-block !important;
 }
 
@@ -398,12 +398,12 @@ select {
   margin-bottom: 0.5rem;
 }
 
-#log_checkbox {
+#checkbox_log {
   margin: 15px;
   margin-left: 0;
 }
 
-#log_checkbox:checked ~ .log_wrapper {
+#checkbox_log:checked ~ .log_wrapper {
   display: inline-block !important;
 }
 
