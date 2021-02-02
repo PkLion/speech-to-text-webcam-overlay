@@ -13,7 +13,7 @@
   <meta property="og:url" content="https://1heisuzuki.github.io/speech-to-text-webcam-overlay/">
   <meta property="og:image" content="https://1heisuzuki.github.io/speech-to-text-webcam-overlay/thumbnail.jpg">
   <meta name="twitter:card" content="summary">
-  
+
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" type="text/css" media="screen">
   <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
@@ -36,123 +36,113 @@
     <div id="status_kuromoji_loading" class="hidden"></div>
 
     <div id="help_on_error" class="help_on_error">
-      カメラやマイクが機能しないとき → ページの再読み込みや，ブラウザの設定を確認してください: <a
-      href="https://support.google.com/chrome/answer/2693767?co=GENIE.Platform%3DDesktop&hl=ja&oco=1"
-      target="_blank">Chrome ヘルプ</a>
+      カメラやマイクが機能しないとき → ページの再読み込みや，ブラウザの設定を確認してください: <a href="https://support.google.com/chrome/answer/2693767?co=GENIE.Platform%3DDesktop&hl=ja&oco=1" target="_blank">Chrome ヘルプ</a>
     </div>
 
     <div class="interface_wrapper">
-    <div class="checkbox_controls_wrapper"><input id="checkbox_controls" type="checkbox">詳細設定を表示</div><div class="checkbox_log_wrapper"><input id="checkbox_log" type="checkbox">認識結果のログを表示</div>
-    <div class="controls_wrapper control_wrapper_row">
-      <div class="col-12 control_wrapper_col">
-        <div class="control_header">文字の調整</div>
-        <div class="control_wrapper" style="padding-top: 0.8rem;">
-          <div class="control_form control_form_slider col-3">
-            <label for="slider_font_size" class="control_label">大きさ</label>
-            <input id="slider_font_size" type="range" class="control_input" value="68" min="1" max="150" step="1"
-              oninput="document.getElementById('result_text').style.fontSize=this.value+'px',document.getElementById('value_font_size').innerHTML=this.value">
-            <div class="control_value">
-              <span id="value_font_size">68</span><span class="value_unit">px</span>
+      <input class="checkboxes" id="checkbox_controls" type="checkbox">詳細設定を表示
+      <input class="checkboxes" id="checkbox_log" type="checkbox">認識結果のログを表示
+      <div class="controls_wrapper control_wrapper_row">
+        <div class="col-12 control_wrapper_col">
+          <div class="control_header">文字の調整</div>
+          <div class="control_wrapper" style="padding-top: 0.8rem;">
+            <div class="control_form control_form_slider col-3">
+              <label for="slider_font_size" class="control_label">大きさ</label>
+              <input id="slider_font_size" type="range" class="control_input" value="68" min="1" max="150" step="1" oninput="document.getElementById('result_text').style.fontSize=this.value+'px',document.getElementById('value_font_size').innerHTML=this.value">
+              <div class="control_value">
+                <span id="value_font_size">68</span><span class="value_unit">px</span>
+              </div>
             </div>
-          </div>
 
-          <div class="control_form control_form_slider col-3">
-            <label for="slider_opacity" class="control_label">透明度</label>
-            <input id="slider_opacity" type="range" class="control_input" value="0.9" min="0" max="1" step="0.05"
-              oninput="document.getElementById('result_text').style.opacity=this.value,document.getElementById('value_opacity').innerHTML=this.value">
-            <div class="control_value">
-              <span id="value_opacity">0.9</span>
+            <div class="control_form control_form_slider col-3">
+              <label for="slider_opacity" class="control_label">透明度</label>
+              <input id="slider_opacity" type="range" class="control_input" value="0.9" min="0" max="1" step="0.05" oninput="document.getElementById('result_text').style.opacity=this.value,document.getElementById('value_opacity').innerHTML=this.value">
+              <div class="control_value">
+                <span id="value_opacity">0.9</span>
+              </div>
             </div>
-          </div>
 
-          <div class="control_form control_form_radio col-4">
-            <label for="selector_position" class="control_label">位置</label>
-            <div class="control_input">
-              <label for="selector_position_full">
+            <div class="control_form control_form_radio col-4">
+              <label for="selector_position" class="control_label">位置</label>
+              <div class="control_input">
+                <label for="selector_position_full">
               <input id="selector_position_full" type="radio" name='selector_position'
                 oninput="document.getElementById('text_overlay_wrapper').className='text_overlay_wrapper full'" checked> 全体
               </label>
-              <label for="selector_position_left">
+                <label for="selector_position_left">
               <input id="selector_position_left" type="radio" name='selector_position'
                 oninput="document.getElementById('text_overlay_wrapper').className='text_overlay_wrapper split left'"> 左
               </label>
-              <label for="selector_position_right">
+                <label for="selector_position_right">
               <input id="selector_position_right" type="radio"  name='selector_position'
                 oninput="document.getElementById('text_overlay_wrapper').className='text_overlay_wrapper split right'"> 右
               </label>
-              <label for="selector_position_top">
+                <label for="selector_position_top">
               <input id="selector_position_top" type="radio" name='selector_position'
                 oninput="document.getElementById('text_overlay_wrapper').className='text_overlay_wrapper split top'"> 上
               </label>
-              <label for="selector_position_bottom">
+                <label for="selector_position_bottom">
               <input id="selector_position_bottom" type="radio" name='selector_position'
                 oninput="document.getElementById('text_overlay_wrapper').className='text_overlay_wrapper split bottom'"> 下
               </label>
+              </div>
             </div>
-          </div>
 
-          <div class="control_form control_form_slider col-3">
-            <label for="slider_text_shadow_stroke" class="control_label">影</label>
-            <input id="slider_text_shadow_stroke" type="range" class="control_input" value="5" min="0" max="20" step="0.1"
-              oninput="document.getElementById('result_text').style.textShadow='0 0 '+this.value+'px '+document.getElementById('selector_text_shadow_color').value,document.getElementById('value_text_shadow_stroke').innerHTML=this.value">
-            <div class="control_value">
-              <span id="value_text_shadow_stroke">5</span><span class="value_unit">px</span>
+            <div class="control_form control_form_slider col-3">
+              <label for="slider_text_shadow_stroke" class="control_label">影</label>
+              <input id="slider_text_shadow_stroke" type="range" class="control_input" value="5" min="0" max="20" step="0.1" oninput="document.getElementById('result_text').style.textShadow='0 0 '+this.value+'px '+document.getElementById('selector_text_shadow_color').value,document.getElementById('value_text_shadow_stroke').innerHTML=this.value">
+              <div class="control_value">
+                <span id="value_text_shadow_stroke">5</span><span class="value_unit">px</span>
+              </div>
             </div>
-          </div>
-          
-          <div class="control_form control_form_slider col-3">
-            <label for="slider_text_stroke" class="control_label">フチ</label>
-            <input id="slider_text_stroke" type="range" class="control_input" value="0.3" min="0" max="5" step="0.01"
-              oninput="document.getElementById('result_text').style.webkitTextStrokeWidth=this.value+'px',document.getElementById('value_text_stroke').innerHTML=this.value">
-            <div class="control_value">
-              <span id="value_text_stroke">0.3</span><span class="value_unit">px</span>
+
+            <div class="control_form control_form_slider col-3">
+              <label for="slider_text_stroke" class="control_label">フチ</label>
+              <input id="slider_text_stroke" type="range" class="control_input" value="0.3" min="0" max="5" step="0.01" oninput="document.getElementById('result_text').style.webkitTextStrokeWidth=this.value+'px',document.getElementById('value_text_stroke').innerHTML=this.value">
+              <div class="control_value">
+                <span id="value_text_stroke">0.3</span><span class="value_unit">px</span>
+              </div>
             </div>
-          </div>
 
-          <div class="control_form control_form_slider col-3">
-            <label for="slider_line_height" class="control_label">行間</label>
-            <input id="slider_line_height" type="range" class="control_input" value="163" min="100" max="300" step="1"
-              oninput="document.getElementById('result_text').style.lineHeight=this.value+'%',document.getElementById('value_line_height').innerHTML=this.value">
-            <div class="control_value">
-              <span id="value_line_height">163</span><span class="value_unit">%</span>
+            <div class="control_form control_form_slider col-3">
+              <label for="slider_line_height" class="control_label">行間</label>
+              <input id="slider_line_height" type="range" class="control_input" value="163" min="100" max="300" step="1" oninput="document.getElementById('result_text').style.lineHeight=this.value+'%',document.getElementById('value_line_height').innerHTML=this.value">
+              <div class="control_value">
+                <span id="value_line_height">163</span><span class="value_unit">%</span>
+              </div>
             </div>
-          </div>
-          
-          <div class="control_form control_form_slider col-3">
-            <label for="slider_letter_spacing" class="control_label">字間</label>
-            <input id="slider_letter_spacing" type="range" class="control_input" value="0.05" min="0" max="1" step="0.01"
-              oninput="document.getElementById('result_text').style.letterSpacing=this.value+'em',document.getElementById('value_letter_spacing').innerHTML=this.value">
-            <div class="control_value">
-              <span id="value_letter_spacing">0.05</span>
+
+            <div class="control_form control_form_slider col-3">
+              <label for="slider_letter_spacing" class="control_label">字間</label>
+              <input id="slider_letter_spacing" type="range" class="control_input" value="0.05" min="0" max="1" step="0.01" oninput="document.getElementById('result_text').style.letterSpacing=this.value+'em',document.getElementById('value_letter_spacing').innerHTML=this.value">
+              <div class="control_value">
+                <span id="value_letter_spacing">0.05</span>
+              </div>
             </div>
-          </div>
 
-          <div class="control_form control_form_color col-2">
-            <label for="selector_text_color" class="control_label">文字色</label>
-            <input id="selector_text_color" type="color" class="control_input" value="#ffffff"
-              oninput="document.getElementById('result_text').style.color=this.value">
-          </div>
+            <div class="control_form control_form_color col-2">
+              <label for="selector_text_color" class="control_label">文字色</label>
+              <input id="selector_text_color" type="color" class="control_input" value="#ffffff" oninput="document.getElementById('result_text').style.color=this.value">
+            </div>
 
-          <div class="control_form control_form_color col-2">
-            <label for="selector_text_shadow_color" class="control_label">影色</label>
-            <input id="selector_text_shadow_color" type="color" class="control_input" value="#000000"
-              oninput="document.getElementById('result_text').style.textShadow='0 0 '+document.getElementById('slider_text_shadow_stroke').value+'px '+this.value">
-          </div>
+            <div class="control_form control_form_color col-2">
+              <label for="selector_text_shadow_color" class="control_label">影色</label>
+              <input id="selector_text_shadow_color" type="color" class="control_input" value="#000000" oninput="document.getElementById('result_text').style.textShadow='0 0 '+document.getElementById('slider_text_shadow_stroke').value+'px '+this.value">
+            </div>
 
-          <div class="control_form control_form_color col-2">
-            <label for="selector_text_stroke_color" class="control_label">フチ色</label>
-            <input id="selector_text_stroke_color" type="color" class="control_input" value="#000000"
-              oninput="document.getElementById('result_text').style.webkitTextStrokeColor=this.value">
-          </div>
+            <div class="control_form control_form_color col-2">
+              <label for="selector_text_stroke_color" class="control_label">フチ色</label>
+              <input id="selector_text_stroke_color" type="color" class="control_input" value="#000000" oninput="document.getElementById('result_text').style.webkitTextStrokeColor=this.value">
+            </div>
 
-          <div class="control_form control_form_selector col-3">
-            <label for="select_font" class="control_label">フォント </label>
-            <select id="select_font" onchange="document.getElementById('result_text').style.fontFamily=fonts_custom[select_font.selectedIndex][1]" style="width: 94%; height: 100%;"></select>
-          </div>
+            <div class="control_form control_form_selector col-3">
+              <label for="select_font" class="control_label">フォント </label>
+              <select id="select_font" onchange="document.getElementById('result_text').style.fontFamily=fonts_custom[select_font.selectedIndex][1]" style="width: 94%; height: 100%;"></select>
+            </div>
 
-          <div class="control_form control_form_selector col-2">
-            <label for="select_autoclear_text" class="control_label">自動消去 </label>
-            <select id="select_autoclear_text" onchange="updateTextClearSecond()">
+            <div class="control_form control_form_selector col-2">
+              <label for="select_autoclear_text" class="control_label">自動消去 </label>
+              <select id="select_autoclear_text" onchange="updateTextClearSecond()">
               <option value="0">なし</option>
               <option value="5">5秒</option>
               <option value="10">10秒</option>
@@ -161,108 +151,92 @@
               <option value="45">45秒</option>
               <option value="60">1分</option>
             </select>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-6 control_wrapper_col">
-        <div class="control_header">文字背景の塗り調整</div>
-        <div class="control_wrapper">
-          <div class="control_form control_form_slider col-6">
-            <label for="slider_text_bg_opacity" class="control_label">濃さ</label>
-            <input id="slider_text_bg_opacity" type="range" class="control_input" value="0.3" min="0" max="1" step="0.05"
-              oninput="document.getElementById('text_bg').style.opacity=this.value,document.getElementById('value_text_bg_opacity').innerHTML=this.value">
-            <div class="control_value">
-              <span id="value_text_bg_opacity">0.3</span>
             </div>
           </div>
+        </div>
 
-          <div class="control_form control_form_color col-6">
-            <label for="selector_text_bg_color" class="control_label">色</label>
-            <input id="selector_text_bg_color" type="color" class="control_input" value="#000000"
-              oninput="document.getElementById('text_bg').style.backgroundColor=this.value">
+        <div class="col-6 control_wrapper_col">
+          <div class="control_header">文字背景の塗り調整</div>
+          <div class="control_wrapper">
+            <div class="control_form control_form_slider col-6">
+              <label for="slider_text_bg_opacity" class="control_label">濃さ</label>
+              <input id="slider_text_bg_opacity" type="range" class="control_input" value="0.3" min="0" max="1" step="0.05" oninput="document.getElementById('text_bg').style.opacity=this.value,document.getElementById('value_text_bg_opacity').innerHTML=this.value">
+              <div class="control_value">
+                <span id="value_text_bg_opacity">0.3</span>
+              </div>
+            </div>
+
+            <div class="control_form control_form_color col-6">
+              <label for="selector_text_bg_color" class="control_label">色</label>
+              <input id="selector_text_bg_color" type="color" class="control_input" value="#000000" oninput="document.getElementById('text_bg').style.backgroundColor=this.value">
+            </div>
           </div>
         </div>
-      </div>
 
-      <div class="col-6 control_wrapper_col">
-        <div class="control_header">単色背景の調整</div>
-        <div class="control_wrapper">
-          <div class="control_button_wrapper col-6">
-            <input type="button" id="video_bg_toggle" class="" value="単色背景 表示/非表示"
-              onclick="toggleClass('video_bg','hidden')">
-          </div>
-          <div class="control_form control_form_color col-5">
-            <label for="selector_video_bg" class="control_label">背景色</label>
-            <input id="selector_video_bg" type="color" class="control_input" value="#00ff00"
-              oninput="document.getElementById('video_bg').style.backgroundColor=this.value">
+        <div class="col-6 control_wrapper_col">
+          <div class="control_header">単色背景の調整</div>
+          <div class="control_wrapper">
+            <div class="control_button_wrapper col-6">
+              <input type="button" id="video_bg_toggle" class="" value="単色背景 表示/非表示" onclick="toggleClass('video_bg','hidden')">
+            </div>
+            <div class="control_form control_form_color col-5">
+              <label for="selector_video_bg" class="control_label">背景色</label>
+              <input id="selector_video_bg" type="color" class="control_input" value="#00ff00" oninput="document.getElementById('video_bg').style.backgroundColor=this.value">
+            </div>
           </div>
         </div>
-      </div>
-      
-      <div class="control_button_wrapper">
-        <input type="button" value="カメラ 表示/非表示"
-          onclick="toggleClass('result_video','hidden')">
 
-        <input type="button" value="カメラ 左右反転"
-          onclick="toggleClass('result_video','mirror')">
+        <div class="control_button_wrapper">
+          <input type="button" value="カメラ 表示/非表示" onclick="toggleClass('result_video','hidden')">
 
-        <input type="button" value="文字 表示/非表示"
-          onclick="toggleClass('text_overlay_wrapper','hidden')">
+          <input type="button" value="カメラ 左右反転" onclick="toggleClass('result_video','mirror')">
 
-        <input type="button" value="文字 左右反転"
-          onclick="toggleClass('text_overlay_wrapper','mirror')">
-        
-        <input type="button" value="全画面化ボタン 表示/非表示" 
-        onclick="toggleClass('FullScreenBtn','hidden')">
+          <input type="button" value="文字 表示/非表示" onclick="toggleClass('text_overlay_wrapper','hidden')">
 
-        <input type="button" value="設定の初期化" 
-        onclick="deleteConfig()">
-      </div>
+          <input type="button" value="文字 左右反転" onclick="toggleClass('text_overlay_wrapper','mirror')">
 
-      <div class="control_selector_wrapper">
-        カメラ：
-        <select id="select_camera" onchange="setupCamera()"></select>
-      </div>
-      <div class="control_selector_wrapper">
-        音声認識<a href="https://github.com/1heisuzuki/speech-to-text-webcam-overlay#他の言語を認識したい" target="_blank">[?]</a>: 
-        <select id="select_language" class="selector" onchange="updateCountry()"></select>
-        <select id="select_dialect" class="selector" onchange="updateLanguage()"></select>
-        <span id="checkbox_hiragana_wrapper" class="selector">
+          <input type="button" value="全画面化ボタン 表示/非表示" onclick="toggleClass('FullScreenBtn','hidden')">
+
+          <input type="button" value="設定の初期化" onclick="deleteConfig()">
+        </div>
+
+        <div class="control_selector_wrapper">
+          カメラ：
+          <select id="select_camera" onchange="setupCamera()"></select>
+        </div>
+        <div class="control_selector_wrapper">
+          音声認識<a href="https://github.com/1heisuzuki/speech-to-text-webcam-overlay#他の言語を認識したい" target="_blank">[?]</a>:
+          <select id="select_language" class="selector" onchange="updateCountry()"></select>
+          <select id="select_dialect" class="selector" onchange="updateLanguage()"></select>
+          <span id="checkbox_hiragana_wrapper" class="selector">
           ひらがな<a href="https://github.com/1heisuzuki/speech-to-text-webcam-overlay#ひらがなで表示したい" target="_blank">[?]</a>: <input type="checkbox" id="checkbox_hiragana" name="checkbox_hiragana" value="hiragana" oninput="initKuromoji(this)">
-        </span>
-        翻訳<a href="https://github.com/1heisuzuki/speech-to-text-webcam-overlay#自動で翻訳したい" target="_blank">[?]</a>: <div id="google_translate_element" class="select_translation selector"></div>
+        </span> 翻訳
+          <a href="https://github.com/1heisuzuki/speech-to-text-webcam-overlay#自動で翻訳したい" target="_blank">[?]</a>:
+          <div id="google_translate_element" class="select_translation selector"></div>
+        </div>
+      </div>
+      <div id="log" class="log_wrapper">
+        <div class="control_header">認識結果のログ</div>
+        <div class="log_control_wrapper help_text">
+          *認識結果が確定したタイミングで反映されます。テキストの編集・コピーも可能です。<br/> **認識中にEnterキーを押すと，認識を止めて文を区切ることができます。日本語の場合は文末に句点が付与されます。
+          <div class="log_input_wrapper">
+            時刻の記録: <input type="checkbox" id="checkbox_timestamp" name="checkbox_timestamp" value="timestamp">
+          </div>
+        </div>
+        <textarea id="result_log" class="result_log_area" onchange="textAreaHeightSet(this)"></textarea><br/>
+        <div style="text-align: center; opacity: 0.6;">
+          <input type="button" value="ログをダウンロード" onclick="downloadLogFile(this)">
+        </div>
       </div>
     </div>
-    <div id="log" class="log_wrapper">
-      <div class="control_header">認識結果のログ</div>
-      <div class="log_control_wrapper help_text">
-        *認識結果が確定したタイミングで反映されます。テキストの編集・コピーも可能です。<br/>
-        **認識中にEnterキーを押すと，認識を止めて文を区切ることができます。日本語の場合は文末に句点が付与されます。
-        <div class="log_input_wrapper">
-          時刻の記録: <input type="checkbox" id="checkbox_timestamp" name="checkbox_timestamp" value="timestamp">
-        </div>
-      </div>
-      <textarea id="result_log" class="result_log_area" onchange="textAreaHeightSet(this)"></textarea><br/>
-      <div style="text-align: center; opacity: 0.6;">
-        <input type="button" value="ログをダウンロード" onclick="downloadLogFile(this)">
-      </div>
-    </div></div>
     <div class="help_wrapper">
       <div class="help_text">
-        よくある質問・ソースコード: <a href="https://github.com/1heisuzuki/speech-to-text-webcam-overlay" target="_blank">GitHub</a><br />
-        音声認識は <a href="https://developer.mozilla.org/ja/docs/Web/API/Web_Speech_API" target="_blank">Web Speech
-          API</a> を利用しています。<br />
-        カメラやマイクが機能しないとき → ページの再読み込みや，ブラウザの設定を確認してください: <a
-            href="https://support.google.com/chrome/answer/2693767?co=GENIE.Platform%3DDesktop&hl=ja&oco=1"
-            target="_blank">Chrome ヘルプ</a><br />
-        「ログをダウンロード」でダウンロードされるファイルは，アクセスしているユーザーのブラウザで生成されています。
+        よくある質問・ソースコード: <a href="https://github.com/1heisuzuki/speech-to-text-webcam-overlay" target="_blank">GitHub</a><br /> 音声認識は <a href="https://developer.mozilla.org/ja/docs/Web/API/Web_Speech_API" target="_blank">Web Speech
+          API</a> を利用しています。<br /> カメラやマイクが機能しないとき → ページの再読み込みや，ブラウザの設定を確認してください: <a href="https://support.google.com/chrome/answer/2693767?co=GENIE.Platform%3DDesktop&hl=ja&oco=1">Chrome ヘルプ</a><br> 「ログをダウンロード」でダウンロードされるファイルは，アクセスしているユーザーのブラウザで生成されています。
       </div>
     </div>
   </div>
-</body>
-
-<!-- Chrome で MediaDevices.enumerateDevices() を動かすためのpolyfill -->
+  <!-- Chrome で MediaDevices.enumerateDevices() を動かすためのpolyfill -->
 <script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
 <script>
   // ブラウザ判定
@@ -303,11 +277,11 @@
     throw err;
   }
 
-  const $video = document.getElementById('result_video');  // 映像表示エリア
+  const $video = document.getElementById('result_video'); // 映像表示エリア
 
   // select要素のoptionをクリアする
   function clearSelect(select) {
-    while(select.firstChild) {
+    while (select.firstChild) {
       select.removeChild(select.firstChild);
     }
   }
@@ -337,7 +311,7 @@
     // 既存の選択肢をクリア
     clearSelect(select_camera);
     // メディアデバイス一覧のうち、videoinputをoption要素としてselectに追加
-    for (let i=0 ; i !== deviceInfos.length ; ++i) {
+    for (let i = 0; i !== deviceInfos.length; ++i) {
       const deviceInfo = deviceInfos[i];
       if (deviceInfo.kind === 'videoinput') {
         const option = document.createElement('option');
@@ -370,12 +344,16 @@
     const videoSource = select_camera.value;
     const constraints = {
       video: {
-        aspectRatio: { ideal: 1.7777777778 }
+        aspectRatio: {
+          ideal: 1.7777777778
+        }
       },
       audio: false
     };
     if (isInit !== true) {
-      constraints.video["deviceId"] = videoSource ? {exact: videoSource} : undefined;
+      constraints.video["deviceId"] = videoSource ? {
+        exact: videoSource
+      } : undefined;
     }
     navigator.mediaDevices.getUserMedia(constraints)
       .then(handleStream)
@@ -403,7 +381,7 @@
   function onCameraError(err) {
     console.log(`カメラ関連の問題：${err.name} / ${err.message}`)
     alert(`カメラ映像を読み込めませんでした。ブラウザのアクセス制限など，設定を確認してください`);
-    document.getElementById('help_on_error').style.display='block';
+    document.getElementById('help_on_error').style.display = 'block';
   }
 
   // カメラの選択肢を生成
@@ -427,27 +405,27 @@
     recognition.interimResults = true;
     recognition.continuous = true;
 
-    recognition.onsoundstart = function () {
+    recognition.onsoundstart = function() {
       document.getElementById('status').innerHTML = "認識中...";
       document.getElementById('status').className = "processing";
     };
-    recognition.onnomatch = function () {
+    recognition.onnomatch = function() {
       document.getElementById('status').innerHTML = "音声を認識できませんでした";
       document.getElementById('status').className = "error";
     };
-    recognition.onerror = function () {
+    recognition.onerror = function() {
       document.getElementById('status').innerHTML = "エラー";
       document.getElementById('status').className = "error";
       if (flag_speech == 0)
         vr_function();
     };
-    recognition.onsoundend = function () {
+    recognition.onsoundend = function() {
       document.getElementById('status').innerHTML = "停止中";
       document.getElementById('status').className = "error";
       vr_function();
     };
 
-    recognition.onresult = function (event) {
+    recognition.onresult = function(event) {
       var results = event.results;
       for (var i = event.resultIndex; i < results.length; i++) {
         if (results[i].isFinal) {
@@ -456,37 +434,37 @@
             result_transcript += '。';
           }
 
-          if(document.getElementById('checkbox_hiragana').checked && lang == 'ja-JP'){
+          if (document.getElementById('checkbox_hiragana').checked && lang == 'ja-JP') {
             document.getElementById('result_text').innerHTML = resultToHiragana(result_transcript);
-          }else{
+          } else {
             document.getElementById('result_text').innerHTML = result_transcript;
           }
           setTimeoutForClearText();
 
-          if(document.getElementById('checkbox_timestamp').checked){
+          if (document.getElementById('checkbox_timestamp').checked) {
             // タイムスタンプ機能
             var now = new window.Date();
             var Year = now.getFullYear();
-            var Month = (("0"+(now.getMonth()+1)).slice(-2));
-            var Date = ("0"+now.getDate()).slice(-2);
-            var Hour = ("0"+now.getHours()).slice(-2);
-            var Min = ("0"+now.getMinutes()).slice(-2);
-            var Sec = ("0"+now.getSeconds()).slice(-2);
+            var Month = (("0" + (now.getMonth() + 1)).slice(-2));
+            var Date = ("0" + now.getDate()).slice(-2);
+            var Hour = ("0" + now.getHours()).slice(-2);
+            var Min = ("0" + now.getMinutes()).slice(-2);
+            var Sec = ("0" + now.getSeconds()).slice(-2);
 
             var timestamp = Year + '-' + Month + '-' + Date + ' ' + Hour + ':' + Min + ':' + Sec + '&#009;'
             result_transcript = timestamp + result_transcript
           }
 
-          document.getElementById('result_log').insertAdjacentHTML('beforeend', result_transcript+'\n');
+          document.getElementById('result_log').insertAdjacentHTML('beforeend', result_transcript + '\n');
           textAreaHeightSet(document.getElementById('result_log'));
           vr_function();
           flag_speech = 0;
         } else {
           var result_transcript = results[i][0].transcript;
 
-          if(document.getElementById('checkbox_hiragana').checked && lang == 'ja-JP'){
+          if (document.getElementById('checkbox_hiragana').checked && lang == 'ja-JP') {
             document.getElementById('result_text').innerHTML = resultToHiragana(result_transcript);
-          }else{
+          } else {
             document.getElementById('result_text').innerHTML = result_transcript;
           }
 
@@ -527,47 +505,49 @@
       () => {
         document.getElementById('result_text').innerHTML = "";
         textUpdateTimeoutID = 0;
-      }, 
+      },
       textUpdateTimeoutSecond * 1000);
   }
 
   // 認識結果のログのtextareaを自動変形する
   // 参考: https://webparts.cman.jp/input/textarea/
-  function textAreaHeightSet(argObj){
+  function textAreaHeightSet(argObj) {
     // 一旦テキストエリアを小さくしてスクロールバー（縦の長さを取得）
     argObj.style.height = "10px";
     var wSclollHeight = parseInt(argObj.scrollHeight);
     // 1行の長さを取得する
     var wLineH = parseInt(argObj.style.lineHeight.replace(/px/, ''));
     // 最低2行の表示エリアにする
-    if(wSclollHeight < (wLineH * 2)){wSclollHeight=(wLineH * 2);}
+    if (wSclollHeight < (wLineH * 2)) {
+      wSclollHeight = (wLineH * 2);
+    }
     // テキストエリアの高さを設定する
     argObj.style.height = wSclollHeight + "px";
   }
 
   // 認識を手動で止める（文を区切る）
   document.addEventListener('keydown',
-  event => {
-    if (event.key === 'Enter') {
-      if(flag_speech == 1){
-        recognition.stop();
+    event => {
+      if (event.key === 'Enter') {
+        if (flag_speech == 1) {
+          recognition.stop();
+        }
       }
-    }
-  });
+    });
 
   // 認識結果のログをダウンロードする
   // 参考: https://qiita.com/kerupani129/items/99fd7a768538fcd33420
-  function downloadLogFile(){
+  function downloadLogFile() {
     const a = document.createElement('a');
     a.href = 'data:text/plain,' + encodeURIComponent(document.getElementById('result_log').value);
 
     var now = new window.Date();
     var Year = now.getFullYear();
-    var Month = (("0"+(now.getMonth()+1)).slice(-2));
-    var Date = ("0"+now.getDate()).slice(-2);
-    var Hour = ("0"+now.getHours()).slice(-2);
-    var Min = ("0"+now.getMinutes()).slice(-2);
-    var Sec = ("0"+now.getSeconds()).slice(-2);
+    var Month = (("0" + (now.getMonth() + 1)).slice(-2));
+    var Date = ("0" + now.getDate()).slice(-2);
+    var Hour = ("0" + now.getHours()).slice(-2);
+    var Min = ("0" + now.getMinutes()).slice(-2);
+    var Sec = ("0" + now.getSeconds()).slice(-2);
 
     a.download = 'log_' + Year + Month + Date + '_' + Hour + Min + Sec + '.txt';
 
@@ -629,7 +609,7 @@
     return (objFullScreen);
   }
 
-  const FullScreenBtn = document.querySelector("#FullScreenBtn");   // フルスクリーン化ボタン
+  const FullScreenBtn = document.querySelector("#FullScreenBtn"); // フルスクリーン化ボタン
 
   const objResultText = document.querySelector("#result_text");
   var font_size_windowed = parseFloat(getComputedStyle(objResultText).getPropertyValue('font-size'));
@@ -637,7 +617,7 @@
 
   window.onload = () => {
     vr_function();
-    const video_doc = document.querySelector("#video_wrapper");    // フルスクリーンにするオブジェクト
+    const video_doc = document.querySelector("#video_wrapper"); // フルスクリーンにするオブジェクト
 
     //--------------------------------
     // [event] 開始ボタンをクリック
@@ -646,8 +626,7 @@
       if (getFullScreenObject()) {
         // フルスクリーンを解除
         cancelFullScreen(video_doc);
-      }
-      else {
+      } else {
         // フルスクリーンを開始
         if (!enabledFullScreen()) {
           alert("フルスクリーンに対応していません");
@@ -665,21 +644,21 @@
       // ボタンを入れ替える
       if (getFullScreenObject()) {
         // フルスクリーン時に文字と画面の比率を維持
-        const ratio = window.parent.screen.height / document.querySelector("#result_video").clientHeight 
+        const ratio = window.parent.screen.height / document.querySelector("#result_video").clientHeight
         font_size_windowed = parseFloat(getComputedStyle(objResultText).getPropertyValue('font-size'));
-        if(objResultText.style.fontSize){
+        if (objResultText.style.fontSize) {
           // スライダーでフォントサイズの指定がされているかどうかを記録
           flag_font_size_styled = 1;
           font_size_windowed = parseFloat(getComputedStyle(objResultText).fontSize);
         }
-        document.querySelector('#result_text').style.fontSize = parseFloat(getComputedStyle(objResultText).getPropertyValue('font-size')) * ratio  +'px';
+        document.querySelector('#result_text').style.fontSize = parseFloat(getComputedStyle(objResultText).getPropertyValue('font-size')) * ratio + 'px';
         console.log("フルスクリーン開始");
 
       } else {
         // フルスクリーン時から通常画面に戻るときに文字と画面の比率を維持
-        if(flag_font_size_styled){
-          document.querySelector('#result_text').style.fontSize = document.querySelector("#value_font_size").textContent+'px';
-        }else{
+        if (flag_font_size_styled) {
+          document.querySelector('#result_text').style.fontSize = document.querySelector("#value_font_size").textContent + 'px';
+        } else {
           // スライダーでフォントサイズの指定がされていなかった（デフォルトだった）場合は単にstyleのfontSizeを削除する
           // 分割表示時のデフォルトCSSを活かすため
           document.querySelector('#result_text').style.fontSize = '';
@@ -695,108 +674,118 @@
 
   // 言語切替
   // 参考: https://www.google.com/intl/ja/chrome/demos/speech.html
-  var langs =
-    [['Japanese',     ['ja-JP']],
-    ['English',     ['en-US', 'United States'],
-              ['en-AU', 'Australia'],
-              ['en-CA', 'Canada'],
-              ['en-IN', 'India'],
-              ['en-KE', 'Kenya'],
-              ['en-TZ', 'Tanzania'],
-              ['en-GH', 'Ghana'],
-              ['en-NZ', 'New Zealand'],
-              ['en-NG', 'Nigeria'],
-              ['en-ZA', 'South Africa'],
-              ['en-PH', 'Philippines'],
-              ['en-GB', 'United Kingdom'],],
-    ['Afrikaans',     ['af-ZA']],
-    ['አማርኛ',       ['am-ET']],
-    ['Azərbaycanca',  ['az-AZ']],
-    ['বাংলা',      ['bn-BD', 'বাংলাদেশ'],
-              ['bn-IN', 'ভারত']],
-    ['Bahasa Indonesia',['id-ID']],
-    ['Bahasa Melayu',   ['ms-MY']],
-    ['Català',      ['ca-ES']],
-    ['Čeština',     ['cs-CZ']],
-    ['Dansk',       ['da-DK']],
-    ['Deutsch',     ['de-DE']],
-    ['Español',     ['es-AR', 'Argentina'],
-              ['es-BO', 'Bolivia'],
-              ['es-CL', 'Chile'],
-              ['es-CO', 'Colombia'],
-              ['es-CR', 'Costa Rica'],
-              ['es-EC', 'Ecuador'],
-              ['es-SV', 'El Salvador'],
-              ['es-ES', 'España'],
-              ['es-US', 'Estados Unidos'],
-              ['es-GT', 'Guatemala'],
-              ['es-HN', 'Honduras'],
-              ['es-MX', 'México'],
-              ['es-NI', 'Nicaragua'],
-              ['es-PA', 'Panamá'],
-              ['es-PY', 'Paraguay'],
-              ['es-PE', 'Perú'],
-              ['es-PR', 'Puerto Rico'],
-              ['es-DO', 'República Dominicana'],
-              ['es-UY', 'Uruguay'],
-              ['es-VE', 'Venezuela']],
-    ['Euskara',     ['eu-ES']],
-    ['Filipino',    ['fil-PH']],
-    ['Français',    ['fr-FR']],
-    ['Basa Jawa',     ['jv-ID']],
-    ['Galego',      ['gl-ES']],
-    ['ગુજરાતી',       ['gu-IN']],
-    ['Hrvatski',    ['hr-HR']],
-    ['IsiZulu',     ['zu-ZA']],
-    ['Íslenska',    ['is-IS']],
-    ['Italiano',    ['it-IT', 'Italia'],
-              ['it-CH', 'Svizzera']],
-    ['ಕನ್ನಡ',       ['kn-IN']],
-    ['ភាសាខ្មែរ',      ['km-KH']],
-    ['Latviešu',    ['lv-LV']],
-    ['Lietuvių',    ['lt-LT']],
-    ['മലയാളം',      ['ml-IN']],
-    ['मराठी',       ['mr-IN']],
-    ['Magyar',      ['hu-HU']],
-    ['ລາວ',        ['lo-LA']],
-    ['Nederlands',    ['nl-NL']],
-    ['नेपाली भाषा',    ['ne-NP']],
-    ['Norsk bokmål',  ['nb-NO']],
-    ['Polski',      ['pl-PL']],
-    ['Português',     ['pt-BR', 'Brasil'],
-              ['pt-PT', 'Portugal']],
-    ['Română',      ['ro-RO']],
-    ['සිංහල',      ['si-LK']],
-    ['Slovenščina',   ['sl-SI']],
-    ['Basa Sunda',    ['su-ID']],
-    ['Slovenčina',    ['sk-SK']],
-    ['Suomi',       ['fi-FI']],
-    ['Svenska',     ['sv-SE']],
-    ['Kiswahili',     ['sw-TZ', 'Tanzania'],
-              ['sw-KE', 'Kenya']],
-    ['ქართული',     ['ka-GE']],
-    ['Հայերեն',      ['hy-AM']],
-    ['தமிழ்',      ['ta-IN', 'இந்தியா'],
-              ['ta-SG', 'சிங்கப்பூர்'],
-              ['ta-LK', 'இலங்கை'],
-              ['ta-MY', 'மலேசியா']],
-    ['తెలుగు',       ['te-IN']],
-    ['Tiếng Việt',    ['vi-VN']],
-    ['Türkçe',      ['tr-TR']],
-    ['اُردُو',      ['ur-PK', 'پاکستان'],
-              ['ur-IN', 'بھارت']],
-    ['Ελληνικά',     ['el-GR']],
-    ['български',     ['bg-BG']],
-    ['Pусский',      ['ru-RU']],
-    ['Српски',       ['sr-RS']],
-    ['Українська',    ['uk-UA']],
-    ['한국어',      ['ko-KR']],
-    ['中文',       ['cmn-Hans-CN', '普通话 (中国大陆)'],
-              ['cmn-Hans-HK', '普通话 (香港)'],
-              ['cmn-Hant-TW', '中文 (台灣)'],
-              ['yue-Hant-HK', '粵語 (香港)']],
-    ['हिन्दी',       ['hi-IN']],
-    ['ภาษาไทย',     ['th-TH']]];
+  var langs = [
+    ['Japanese', ['ja-JP']],
+    ['English', ['en-US', 'United States'],
+      ['en-AU', 'Australia'],
+      ['en-CA', 'Canada'],
+      ['en-IN', 'India'],
+      ['en-KE', 'Kenya'],
+      ['en-TZ', 'Tanzania'],
+      ['en-GH', 'Ghana'],
+      ['en-NZ', 'New Zealand'],
+      ['en-NG', 'Nigeria'],
+      ['en-ZA', 'South Africa'],
+      ['en-PH', 'Philippines'],
+      ['en-GB', 'United Kingdom'],
+    ],
+    ['Afrikaans', ['af-ZA']],
+    ['አማርኛ', ['am-ET']],
+    ['Azərbaycanca', ['az-AZ']],
+    ['বাংলা', ['bn-BD', 'বাংলাদেশ'],
+      ['bn-IN', 'ভারত']
+    ],
+    ['Bahasa Indonesia', ['id-ID']],
+    ['Bahasa Melayu', ['ms-MY']],
+    ['Català', ['ca-ES']],
+    ['Čeština', ['cs-CZ']],
+    ['Dansk', ['da-DK']],
+    ['Deutsch', ['de-DE']],
+    ['Español', ['es-AR', 'Argentina'],
+      ['es-BO', 'Bolivia'],
+      ['es-CL', 'Chile'],
+      ['es-CO', 'Colombia'],
+      ['es-CR', 'Costa Rica'],
+      ['es-EC', 'Ecuador'],
+      ['es-SV', 'El Salvador'],
+      ['es-ES', 'España'],
+      ['es-US', 'Estados Unidos'],
+      ['es-GT', 'Guatemala'],
+      ['es-HN', 'Honduras'],
+      ['es-MX', 'México'],
+      ['es-NI', 'Nicaragua'],
+      ['es-PA', 'Panamá'],
+      ['es-PY', 'Paraguay'],
+      ['es-PE', 'Perú'],
+      ['es-PR', 'Puerto Rico'],
+      ['es-DO', 'República Dominicana'],
+      ['es-UY', 'Uruguay'],
+      ['es-VE', 'Venezuela']
+    ],
+    ['Euskara', ['eu-ES']],
+    ['Filipino', ['fil-PH']],
+    ['Français', ['fr-FR']],
+    ['Basa Jawa', ['jv-ID']],
+    ['Galego', ['gl-ES']],
+    ['ગુજરાતી', ['gu-IN']],
+    ['Hrvatski', ['hr-HR']],
+    ['IsiZulu', ['zu-ZA']],
+    ['Íslenska', ['is-IS']],
+    ['Italiano', ['it-IT', 'Italia'],
+      ['it-CH', 'Svizzera']
+    ],
+    ['ಕನ್ನಡ', ['kn-IN']],
+    ['ភាសាខ្មែរ', ['km-KH']],
+    ['Latviešu', ['lv-LV']],
+    ['Lietuvių', ['lt-LT']],
+    ['മലയാളം', ['ml-IN']],
+    ['मराठी', ['mr-IN']],
+    ['Magyar', ['hu-HU']],
+    ['ລາວ', ['lo-LA']],
+    ['Nederlands', ['nl-NL']],
+    ['नेपाली भाषा', ['ne-NP']],
+    ['Norsk bokmål', ['nb-NO']],
+    ['Polski', ['pl-PL']],
+    ['Português', ['pt-BR', 'Brasil'],
+      ['pt-PT', 'Portugal']
+    ],
+    ['Română', ['ro-RO']],
+    ['සිංහල', ['si-LK']],
+    ['Slovenščina', ['sl-SI']],
+    ['Basa Sunda', ['su-ID']],
+    ['Slovenčina', ['sk-SK']],
+    ['Suomi', ['fi-FI']],
+    ['Svenska', ['sv-SE']],
+    ['Kiswahili', ['sw-TZ', 'Tanzania'],
+      ['sw-KE', 'Kenya']
+    ],
+    ['ქართული', ['ka-GE']],
+    ['Հայերեն', ['hy-AM']],
+    ['தமிழ்', ['ta-IN', 'இந்தியா'],
+      ['ta-SG', 'சிங்கப்பூர்'],
+      ['ta-LK', 'இலங்கை'],
+      ['ta-MY', 'மலேசியா']
+    ],
+    ['తెలుగు', ['te-IN']],
+    ['Tiếng Việt', ['vi-VN']],
+    ['Türkçe', ['tr-TR']],
+    ['اُردُو', ['ur-PK', 'پاکستان'],
+      ['ur-IN', 'بھارت']
+    ],
+    ['Ελληνικά', ['el-GR']],
+    ['български', ['bg-BG']],
+    ['Pусский', ['ru-RU']],
+    ['Српски', ['sr-RS']],
+    ['Українська', ['uk-UA']],
+    ['한국어', ['ko-KR']],
+    ['中文', ['cmn-Hans-CN', '普通话 (中国大陆)'],
+      ['cmn-Hans-HK', '普通话 (香港)'],
+      ['cmn-Hant-TW', '中文 (台灣)'],
+      ['yue-Hant-HK', '粵語 (香港)']
+    ],
+    ['हिन्दी', ['hi-IN']],
+    ['ภาษาไทย', ['th-TH']]
+  ];
 
   for (var i = 0; i < langs.length; i++) {
     select_language.options[i] = new Option(langs[i][0], i);
@@ -821,21 +810,21 @@
 
   function updateLanguage() {
     var flag_recognition_stopped = 0;
-    if(recognition){
+    if (recognition) {
       recognition.stop();
       flag_recognition_stopped = 1;
     }
     lang = select_dialect.value;
-    if(flag_recognition_stopped){
-      vr_function();   
+    if (flag_recognition_stopped) {
+      vr_function();
     }
 
     var el_status_kuromoji_loading = document.getElementById('status_kuromoji_loading');
     var el_checkbox_hiragana = document.getElementById('checkbox_hiragana_wrapper');
-    if(lang == 'ja-JP'){
+    if (lang == 'ja-JP') {
       el_status_kuromoji_loading.style.display = "inline-block";
       el_checkbox_hiragana.style.display = "inline";
-    }else{
+    } else {
       el_status_kuromoji_loading.style.display = "none";
       el_checkbox_hiragana.style.display = "none";
     }
@@ -844,22 +833,23 @@
   // 結果の翻訳機能を追加
   // 参考: https://pisuke-code.com/js-usage-of-google-trans-api/
   function googleTranslateElementInit() {
-    new google.translate.TranslateElement({ 
-        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-      }, 'google_translate_element');
+    new google.translate.TranslateElement({
+      layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+    }, 'google_translate_element');
   }
 
   // フォント切替
   // 参考: https://www.google.com/intl/ja/chrome/demos/speech.html
-  var fonts_custom =
-    [['Noto Sans JP',   "'Noto Sans JP', sans-serif"],
+  var fonts_custom = [
+    ['Noto Sans JP', "'Noto Sans JP', sans-serif"],
     ['BIZ UD ゴシック（Windows 10）', "'BIZ UDゴシック', 'BIZ UDGothic', 'Noto Sans JP', sans-serif"],
     ['BIZ UD 明朝（Windows 10）', "'BIZ UD明朝', 'BIZ UDMincho', 'Noto Sans JP', sans-serif"],
     ['游ゴシック', "游ゴシック体, 'Yu Gothic', YuGothic, sans-serif"],
     ['メイリオ', "'メイリオ', 'Meiryo', 'Noto Sans JP', sans-serif"],
     ['ポップ体（Windows）', "'HGS創英角ﾎﾟｯﾌﾟ体', 'Noto Sans JP', sans-serif"],
     ['ゴシック体（ブラウザ標準）', "sans-serif"],
-    ['明朝体（ブラウザ標準）',  "serif"]];
+    ['明朝体（ブラウザ標準）', "serif"]
+  ];
 
   for (var i = 0; i < fonts_custom.length; i++) {
     select_font.options[i] = new Option(fonts_custom[i][0], i);
@@ -878,17 +868,17 @@
       elem.dispatchEvent(ev);
     }
     ['slider_font_size',
-     'slider_opacity',
-     'slider_text_shadow_stroke',
-     'slider_text_stroke',
-     'slider_line_height',
-     'slider_letter_spacing',
-     'selector_text_color',
-     'selector_text_shadow_color',
-     'selector_text_stroke_color',
-     'slider_text_bg_opacity',
-     'selector_text_bg_color',
-     'selector_video_bg',
+      'slider_opacity',
+      'slider_text_shadow_stroke',
+      'slider_text_stroke',
+      'slider_line_height',
+      'slider_letter_spacing',
+      'selector_text_color',
+      'selector_text_shadow_color',
+      'selector_text_stroke_color',
+      'slider_text_bg_opacity',
+      'selector_text_bg_color',
+      'selector_video_bg',
     ].forEach(id => {
       if (typeof config[id] !== 'undefined') {
         const el = document.getElementById(id);
@@ -897,17 +887,17 @@
       }
     });
     ['video_bg',
-     'result_video',
-     'text_overlay_wrapper',
-     'FullScreenBtn'
+      'result_video',
+      'text_overlay_wrapper',
+      'FullScreenBtn'
     ].forEach(id => {
       if (typeof config[id] !== 'undefined') {
         const el = document.getElementById(id);
         if (config[id]) {
           Object.keys(config[id]).forEach(key => {
-            if(config[id][key]){
+            if (config[id][key]) {
               el.classList.add(key);
-            }else{
+            } else {
               el.classList.remove(key);
             }
           });
@@ -947,8 +937,12 @@
     );
     document.querySelector('#select_camera').addEventListener('change', updateConfigValue);
     document.querySelector('#select_font').addEventListener('change', updateConfigValue);
-    document.querySelector('#checkbox_timestamp').addEventListener('input', function(e) {updateConfig(e.target.id, e.target.checked)});
-    document.querySelector('#checkbox_hiragana').addEventListener('input', function(e) {updateConfig(e.target.id, e.target.checked)});
+    document.querySelector('#checkbox_timestamp').addEventListener('input', function(e) {
+      updateConfig(e.target.id, e.target.checked)
+    });
+    document.querySelector('#checkbox_hiragana').addEventListener('input', function(e) {
+      updateConfig(e.target.id, e.target.checked)
+    });
     document.querySelector('#select_autoclear_text').addEventListener('change', updateConfigValue);
   }
 
@@ -958,7 +952,7 @@
   }
 
   function updateConfigClass(key, value_key, value) {
-    if(config[key] == undefined){
+    if (config[key] == undefined) {
       config[key] = {};
     }
     config[key][value_key] = value;
@@ -982,11 +976,14 @@
 
   // 形態素解析
   let kuromojiObj;
+
   function initKuromoji(checkbox) {
-    if(checkbox.checked == true && kuromojiObj == undefined){
+    if (checkbox.checked == true && kuromojiObj == undefined) {
       document.getElementById('status_kuromoji_loading').innerHTML = "ひらがなデータ読み込み中...";
       document.getElementById('status_kuromoji_loading').className = "processing";
-      kuromoji.builder({ dicPath: "kuromoji/dict/" }).build(function (err, tokenizer) {
+      kuromoji.builder({
+        dicPath: "kuromoji/dict/"
+      }).build(function(err, tokenizer) {
         kuromojiObj = tokenizer
         document.getElementById('status_kuromoji_loading').innerHTML = "ひらがなデータ読み込み完了";
         document.getElementById('status_kuromoji_loading').className = "ready";
@@ -996,15 +993,15 @@
 
   // 結果をひらがなにする
   function resultToHiragana(text) {
-    if(kuromojiObj == undefined){
+    if (kuromojiObj == undefined) {
       return text;
     }
     var kuromoji_result = kuromojiObj.tokenize(text);
     var result_hiragana = '';
     for (var i = 0; i < kuromoji_result.length; i++) {
-      if(kuromoji_result[i].word_type == "KNOWN"){
+      if (kuromoji_result[i].word_type == "KNOWN") {
         result_hiragana += kuromoji_result[i].reading;
-      }else{
+      } else {
         result_hiragana += kuromoji_result[i].surface_form;
       }
     }
@@ -1019,7 +1016,7 @@
       return String.fromCharCode(chr);
     });
   }
-
 </script>
+</body>
 
 </html>
