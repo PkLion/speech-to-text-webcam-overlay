@@ -165,8 +165,7 @@ html, body {
 }
  .checkboxes_label {
      display: inline-block;
-     margin: 15px;
-     margin-left: 0;
+     margin-bottom: 16px;
 }
  #checkbox_controls:checked ~ .controls_wrapper {
      display: inline-block !important;
