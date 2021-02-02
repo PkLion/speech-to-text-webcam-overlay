@@ -160,7 +160,11 @@ html, body {
      opacity: 0.6;
 }
  .checkboxes {
-     display: block;
+     display: inline-block;
+     margin: 6px;
+}
+ .checkboxes_label {
+     display: inline-block;
      margin: 15px;
      margin-left: 0;
 }
