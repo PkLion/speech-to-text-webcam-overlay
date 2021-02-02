@@ -131,6 +131,7 @@ a:link, a:visited, a:hover, a:active {
   -webkit-text-stroke-width: 0.3px;
   -webkit-text-stroke-color: #000;
   text-align: justify;
+  word-wrap: break-word;
   opacity: 0.9;
 }
 
@@ -193,7 +194,8 @@ a:link, a:visited, a:hover, a:active {
   opacity: 0.6;
 }
 
-#checkbox_controls {
+.checkboxes {
+  display: block:
   margin: 15px;
   margin-left: 0;
 }
@@ -396,11 +398,6 @@ select {
   font-size: 85%;
   line-height: 145%;
   margin-bottom: 0.5rem;
-}
-
-#checkbox_log {
-  margin: 15px;
-  margin-left: 0;
 }
 
 #checkbox_log:checked ~ .log_wrapper {
